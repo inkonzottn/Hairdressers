@@ -1,0 +1,12 @@
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\bin\Debug\HairdressersDB.mdf
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\bin\Debug\HairdressersDB_log.ldf
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\bin\Debug\Hairdressers.exe.config
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\bin\Debug\Hairdressers.exe
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\bin\Debug\Hairdressers.pdb
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\obj\Debug\Hairdressers.csproj.AssemblyReference.cache
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\obj\Debug\Hairdressers.Properties.Resources.resources
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\obj\Debug\Hairdressers.csproj.GenerateResource.cache
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\obj\Debug\Hairdressers.csproj.CoreCompileInputs.cache
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\obj\Debug\Hairdressers.exe
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\obj\Debug\Hairdressers.pdb
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\obj\Debug\Hairdressers.LoginForm.resources
