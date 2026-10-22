@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|c:\\users\\chorobish\\source\\repos\\izvp\\hairdressers\\hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -11,16 +11,12 @@
       "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\hairdressers\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|c:\\users\\chorobish\\source\\repos\\izvp\\hairdressers\\hairdressers\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|c:\\users\\chorobish\\source\\repos\\izvp\\hairdressers\\hairdressers\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\hairdressers\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|c:\\users\\chorobish\\source\\repos\\izvp\\hairdressers\\hairdressers\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,15 +35,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "LoginForm.cs",
+              "Title": "LoginForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\LoginForm.cs",
               "RelativeDocumentMoniker": "Hairdressers\\LoginForm.cs",
-              "ToolTip": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\LoginForm.cs",
-              "RelativeToolTip": "Hairdressers\\LoginForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAADMAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\LoginForm.cs [Design]",
+              "RelativeToolTip": "Hairdressers\\LoginForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T09:41:59.087Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-22T12:57:01.22Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -55,9 +50,9 @@
               "Title": "AdminMainForm.cs",
               "DocumentMoniker": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\AdminMainForm.cs",
               "RelativeDocumentMoniker": "Hairdressers\\AdminMainForm.cs",
-              "ToolTip": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\AdminMainForm.cs*",
-              "RelativeToolTip": "Hairdressers\\AdminMainForm.cs*",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAwwGMAAAAqAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\AdminMainForm.cs",
+              "RelativeToolTip": "Hairdressers\\AdminMainForm.cs",
+              "ViewState": "AgIAAF4BAAAAAAAAAAAIwG0BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-22T09:32:16.822Z",
               "EditorCaption": ""
@@ -68,8 +63,8 @@
               "Title": "AdminMainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\AdminMainForm.cs",
               "RelativeDocumentMoniker": "Hairdressers\\AdminMainForm.cs",
-              "ToolTip": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\AdminMainForm.cs [Design]*",
-              "RelativeToolTip": "Hairdressers\\AdminMainForm.cs [Design]*",
+              "ToolTip": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\AdminMainForm.cs [Design]",
+              "RelativeToolTip": "Hairdressers\\AdminMainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-22T09:16:53.997Z",
               "EditorCaption": " [Design]"
@@ -77,18 +72,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "LoginForm.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\LoginForm.cs",
-              "RelativeDocumentMoniker": "Hairdressers\\LoginForm.cs",
-              "ToolTip": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\LoginForm.cs [Design]",
-              "RelativeToolTip": "Hairdressers\\LoginForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-21T09:28:20.28Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\Program.cs",
               "RelativeDocumentMoniker": "Hairdressers\\Program.cs",
