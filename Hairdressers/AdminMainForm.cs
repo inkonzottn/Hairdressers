@@ -5,10 +5,12 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Hairdressers
 {
@@ -17,6 +19,8 @@ namespace Hairdressers
         private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\HairdressersDB.mdf;Integrated Security=True";
         private int selectedServiceId = -1;
         private int selectedClientId = -1;
+        private int selectedMasterId = -1;
+        private int selectedUserId = -1;
 
         public AdminMainForm()
         {
@@ -27,6 +31,23 @@ namespace Hairdressers
         private SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString);
+        }
+
+        private void tcAdmin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tcAdmin.SelectedTab == tpServices)
+            {
+                LoadServices();
+            }
+            else if (tcAdmin.SelectedTab == tpClients)
+            {
+                LoadClients();
+            }
+            else if (tcAdmin.SelectedTab == tpMasters)
+            {
+                LoadMasters();
+                InitSpecializations();
+            }
         }
 
         // ПОСЛУГИ
@@ -411,28 +432,307 @@ namespace Hairdressers
             selectedClientId = -1;
         }
 
-        private void tcAdmin_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tcAdmin.SelectedTab == tpServices)
-            {
-                LoadServices();
-            }
-            else if (tcAdmin.SelectedTab == tpClients)
-            {
-                LoadClients(); 
-            }
-            //else if (tcAdmin.SelectedTab == tpMasters)
-            //{
-            //    // LoadMasters(); 
-            //}
-        }
-
         private void OnlyLetters_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
             {
                 e.Handled = true;
             }
+        }
+
+
+        // МАЙСТРИ
+
+        private void LoadMasters(string searchQuery = "")
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    string query = @"SELECT m.id, m.userId, m.specialization, m.firstName, m.lastName, u.login, u.passwordHash 
+                             FROM Masters m 
+                             INNER JOIN Users u ON m.userId = u.id";
+
+                    if (!string.IsNullOrEmpty(searchQuery))
+                    {
+                        query += " WHERE m.firstName LIKE @search OR m.lastName LIKE @search OR m.specialization LIKE @search OR u.login LIKE @search";
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        if (!string.IsNullOrEmpty(searchQuery))
+                        {
+                            cmd.Parameters.AddWithValue("@search", "%" + searchQuery + "%");
+                        }
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            dgvMasters.DataSource = dt;
+
+                            // ховаємо службові колонки
+                            if (dgvMasters.Columns["id"] != null) dgvMasters.Columns["id"].Visible = false;
+                            if (dgvMasters.Columns["userId"] != null) dgvMasters.Columns["userId"].Visible = false;
+                            if (dgvMasters.Columns["login"] != null) dgvMasters.Columns["login"].Visible = false;      
+                            if (dgvMasters.Columns["passwordHash"] != null) dgvMasters.Columns["passwordHash"].Visible = false; 
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Помилка завантаження майстрів: " + ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnSearchMaster_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearchMaster.Text.Trim();
+            LoadMasters(searchText);
+        }
+
+        private void InitSpecializations()
+        {
+            cmbMasterSpecialization.Items.Clear();
+            cmbMasterSpecialization.Items.AddRange(new string[] {
+                "Жіночий майстер",
+                "Чоловічий майстер",
+                "Pro-майстер",
+                "Колорист"
+            });
+            cmbMasterSpecialization.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+
+        private void btnAddMaster_Click(object sender, EventArgs e)
+        {
+            string firstName = txtMasterFirstName.Text.Trim();
+            string lastName = txtMasterLastName.Text.Trim();
+            string spec = cmbMasterSpecialization.Text.Trim();
+            string login = txtMasterLogin.Text.Trim();
+            string password = txtMasterPassword.Text.Trim();
+
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
+                string.IsNullOrEmpty(spec) || string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Заповніть усі поля, включаючи спеціалізацію, логін та пароль!", "Увага", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (SqlConnection connection = GetConnection())
+            {
+                connection.Open();
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        string passwordHash = HashPassword(password);
+                        string userQuery = "INSERT INTO Users (login, passwordHash, roleId) OUTPUT INSERTED.id VALUES (@login, @passwordHash, @roleId)";
+                        int newUserId;
+
+
+                        using (SqlCommand cmdUser = new SqlCommand(userQuery, connection, transaction))
+                        {
+                            cmdUser.Parameters.AddWithValue("@login", login);
+                            cmdUser.Parameters.AddWithValue("@passwordHash", passwordHash);
+                            cmdUser.Parameters.AddWithValue("@roleId", 2);
+
+                            newUserId = (int)cmdUser.ExecuteScalar();
+                        }
+
+                        string masterQuery = "INSERT INTO Masters (userId, specialization, firstName, lastName) VALUES (@userId, @spec, @firstName, @lastName)";
+                        using (SqlCommand cmdMaster = new SqlCommand(masterQuery, connection, transaction))
+                        {
+                            cmdMaster.Parameters.AddWithValue("@userId", newUserId);
+                            cmdMaster.Parameters.AddWithValue("@spec", spec);
+                            cmdMaster.Parameters.AddWithValue("@firstName", firstName);
+                            cmdMaster.Parameters.AddWithValue("@lastName", lastName);
+
+                            cmdMaster.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                        MessageBox.Show("Майстра та його обліковий запис успішно створено!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        ClearMasterInputs();
+                        LoadMasters();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Помилка створення майстра: " + ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void btnUpdateMaster_Click(object sender, EventArgs e)
+        {
+            if (selectedMasterId == -1 || selectedUserId == -1)
+            {
+                MessageBox.Show("Оберіть майстра з таблиці для редагування!", "Увага", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string firstName = txtMasterFirstName.Text.Trim();
+            string lastName = txtMasterLastName.Text.Trim();
+            string spec = cmbMasterSpecialization.Text.Trim();
+            string login = txtMasterLogin.Text.Trim();
+            string newPassword = txtMasterPassword.Text.Trim();
+
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
+                string.IsNullOrEmpty(spec) || string.IsNullOrEmpty(login))
+            {
+                MessageBox.Show("Заповніть обов'язкові поля!", "Увага", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (SqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                using (SqlTransaction transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        if (!string.IsNullOrEmpty(newPassword))
+                        {
+                            string hashedPassword = HashPassword(newPassword);
+                            string userQuery = "UPDATE Users SET login = @login, passwordHash = @password WHERE id = @userId";
+                            using (SqlCommand cmdUser = new SqlCommand(userQuery, conn, transaction))
+                            {
+                                cmdUser.Parameters.AddWithValue("@login", login);
+                                cmdUser.Parameters.AddWithValue("@password", hashedPassword);
+                                cmdUser.Parameters.AddWithValue("@userId", selectedUserId);
+                                cmdUser.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            string userQuery = "UPDATE Users SET login = @login WHERE id = @userId";
+                            using (SqlCommand cmdUser = new SqlCommand(userQuery, conn, transaction))
+                            {
+                                cmdUser.Parameters.AddWithValue("@login", login);
+                                cmdUser.Parameters.AddWithValue("@userId", selectedUserId);
+                                cmdUser.ExecuteNonQuery();
+                            }
+                        }
+
+                        string masterQuery = "UPDATE Masters SET specialization = @spec, firstName = @firstName, lastName = @lastName WHERE id = @id";
+                        using (SqlCommand cmdMaster = new SqlCommand(masterQuery, conn, transaction))
+                        {
+                            cmdMaster.Parameters.AddWithValue("@spec", spec);
+                            cmdMaster.Parameters.AddWithValue("@firstName", firstName);
+                            cmdMaster.Parameters.AddWithValue("@lastName", lastName);
+                            cmdMaster.Parameters.AddWithValue("@id", selectedMasterId);
+                            cmdMaster.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                        MessageBox.Show("Дані успішно оновлено!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        ClearMasterInputs();
+                        LoadMasters();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Помилка оновлення: " + ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void btnDeleteMaster_Click(object sender, EventArgs e)
+        {
+            if (selectedMasterId == -1 || selectedUserId == -1)
+            {
+                MessageBox.Show("Оберіть майстра для видалення!", "Увага", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult confirm = MessageBox.Show("Ви впевнені, що хочете видалити цього майстра та його обліковий запис?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm == DialogResult.Yes)
+            {
+                using (SqlConnection connection = GetConnection())
+                {
+                    connection.Open();
+                    using (SqlTransaction transaction = connection.BeginTransaction())
+                    {
+                        try
+                        {
+                            // видаляємо майстра з Masters
+                            string delMaster = "DELETE FROM Masters WHERE id = @masterId";
+                            using (SqlCommand cmd1 = new SqlCommand(delMaster, connection, transaction))
+                            {
+                                cmd1.Parameters.AddWithValue("@masterId", selectedMasterId);
+                                cmd1.ExecuteNonQuery();
+                            }
+
+                            // видаляємо запис із Users
+                            string delUser = "DELETE FROM Users WHERE id = @userId";
+                            using (SqlCommand cmd2 = new SqlCommand(delUser, connection, transaction))
+                            {
+                                cmd2.Parameters.AddWithValue("@userId", selectedUserId);
+                                cmd2.ExecuteNonQuery();
+                            }
+
+                            transaction.Commit();
+                            MessageBox.Show("Майстра та його обліковий запис успішно видалено!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            ClearMasterInputs();
+                            LoadMasters();
+                        }
+                        catch (Exception ex)
+                        {
+                            transaction.Rollback();
+                            MessageBox.Show("Помилка видалення: " + ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void dgvMasters_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvMasters.Rows[e.RowIndex];
+                selectedMasterId = Convert.ToInt32(row.Cells["id"].Value);
+                selectedUserId = Convert.ToInt32(row.Cells["userId"].Value);
+
+                cmbMasterSpecialization.SelectedItem = row.Cells["specialization"].Value.ToString();
+                txtMasterFirstName.Text = row.Cells["firstName"].Value.ToString();
+                txtMasterLastName.Text = row.Cells["lastName"].Value.ToString();
+
+                txtMasterLogin.Text = row.Cells["login"].Value.ToString();
+                //txtMasterPassword.Text = row.Cells["passwordHash"].Value.ToString();
+            }
+        }
+
+        private void ClearMasterInputs()
+        {
+            cmbMasterSpecialization.SelectedIndex = -1;
+            txtMasterFirstName.Clear();
+            txtMasterLastName.Clear();
+            txtMasterLogin.Clear();
+            txtMasterPassword.Clear();
+            selectedMasterId = -1;
+            selectedUserId = -1;
         }
     }
 }
