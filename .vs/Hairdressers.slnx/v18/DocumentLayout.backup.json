@@ -3,19 +3,21 @@
   "WorkspaceRootPath": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\hairdressers\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|c:\\users\\chorobish\\source\\repos\\izvp\\hairdressers\\hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_CHOROBISH_SOURCE_REPOS_IZVP_HAIRDRESSERS_HAIRDRESSERS_HAIRDRESSERSDB.MDF/True/SqlTable/dbo.Masters.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_CHOROBISH_SOURCE_REPOS_IZVP_HAIRDRESSERS_HAIRDRESSERS_HAIRDRESSERSDB.MDF/True/SqlTable/dbo.Masters.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_CHOROBISH_SOURCE_REPOS_IZVP_HAIRDRESSERS_HAIRDRESSERS_HAIRDRESSERSDB.MDF/True/SqlTable/dbo.MasterServices.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_CHOROBISH_SOURCE_REPOS_IZVP_HAIRDRESSERS_HAIRDRESSERS_HAIRDRESSERSDB.MDF/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,12 +35,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "dbo.Masters [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_CHOROBISH_SOURCE_REPOS_IZVP_HAIRDRESSERS_HAIRDRESSERS_HAIRDRESSERSDB.MDF/True/SqlTable/dbo.Masters.sql",
               "ToolTip": "dbo.Masters [Data]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-10-22T17:10:47.448Z",
+              "WhenOpened": "2026-10-23T09:50:29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dbo.MasterServices [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_CHOROBISH_SOURCE_REPOS_IZVP_HAIRDRESSERS_HAIRDRESSERS_HAIRDRESSERSDB.MDF/True/SqlTable/dbo.MasterServices.sql",
+              "ToolTip": "dbo.MasterServices [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-10-23T09:43:34.709Z",
               "EditorCaption": ""
             },
             {
@@ -49,14 +61,14 @@
               "RelativeDocumentMoniker": "Hairdressers\\AdminMainForm.cs",
               "ToolTip": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\AdminMainForm.cs",
               "RelativeToolTip": "Hairdressers\\AdminMainForm.cs",
-              "ViewState": "AgIAALIBAAAAAAAAAAAYwMUCAABVAAAAAAAAAA==",
+              "ViewState": "AgIAALIBAAAAAAAAAAAswO8BAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-22T09:32:16.822Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "AdminMainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\AdminMainForm.cs",
               "RelativeDocumentMoniker": "Hairdressers\\AdminMainForm.cs",
@@ -68,15 +80,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\Program.cs",
-              "RelativeDocumentMoniker": "Hairdressers\\Program.cs",
-              "ToolTip": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\Program.cs",
-              "RelativeToolTip": "Hairdressers\\Program.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAwwBIAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T09:45:54.507Z",
+              "DocumentIndex": 4,
+              "Title": "dbo.Users [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_CHOROBISH_SOURCE_REPOS_IZVP_HAIRDRESSERS_HAIRDRESSERS_HAIRDRESSERSDB.MDF/True/SqlTable/dbo.Users.sql",
+              "ToolTip": "dbo.Users [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-10-23T09:50:39.836Z",
               "EditorCaption": ""
             }
           ]

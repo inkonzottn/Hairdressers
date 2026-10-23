@@ -32,6 +32,11 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tpMasters = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cmbMasterSpecialization = new System.Windows.Forms.ComboBox();
+            this.txtMasterPassword = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtMasterLogin = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnMasterSearch = new System.Windows.Forms.Button();
             this.txtSearchMaster = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -69,11 +74,8 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtMasterLogin = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtMasterPassword = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cmbMasterSpecialization = new System.Windows.Forms.ComboBox();
+            this.clbMasterServices = new System.Windows.Forms.CheckedListBox();
+            this.panelMainMasters = new System.Windows.Forms.Panel();
             this.tcAdmin.SuspendLayout();
             this.tpMasters.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -84,6 +86,7 @@
             this.tpServices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panelMainMasters.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -124,32 +127,66 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.cmbMasterSpecialization);
-            this.panel3.Controls.Add(this.txtMasterPassword);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.txtMasterLogin);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.btnMasterSearch);
-            this.panel3.Controls.Add(this.txtSearchMaster);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.btnDeleteMaster);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.txtMasterFirstName);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.txtMasterLastName);
-            this.panel3.Controls.Add(this.btnUpdateMaster);
-            this.panel3.Controls.Add(this.btnAddMaster);
+            this.panel3.Controls.Add(this.clbMasterServices);
+            this.panel3.Controls.Add(this.panelMainMasters);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(715, 869);
             this.panel3.TabIndex = 13;
             // 
+            // cmbMasterSpecialization
+            // 
+            this.cmbMasterSpecialization.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbMasterSpecialization.FormattingEnabled = true;
+            this.cmbMasterSpecialization.Location = new System.Drawing.Point(337, 250);
+            this.cmbMasterSpecialization.Name = "cmbMasterSpecialization";
+            this.cmbMasterSpecialization.Size = new System.Drawing.Size(382, 45);
+            this.cmbMasterSpecialization.TabIndex = 17;
+            // 
+            // txtMasterPassword
+            // 
+            this.txtMasterPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMasterPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtMasterPassword.Location = new System.Drawing.Point(337, 387);
+            this.txtMasterPassword.Name = "txtMasterPassword";
+            this.txtMasterPassword.Size = new System.Drawing.Size(378, 44);
+            this.txtMasterPassword.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(30, 394);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(124, 37);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Пароль";
+            // 
+            // txtMasterLogin
+            // 
+            this.txtMasterLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMasterLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtMasterLogin.Location = new System.Drawing.Point(337, 322);
+            this.txtMasterLogin.Name = "txtMasterLogin";
+            this.txtMasterLogin.Size = new System.Drawing.Size(378, 44);
+            this.txtMasterLogin.TabIndex = 14;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(30, 329);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 37);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Логін";
+            // 
             // btnMasterSearch
             // 
             this.btnMasterSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMasterSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnMasterSearch.Location = new System.Drawing.Point(469, 42);
+            this.btnMasterSearch.Location = new System.Drawing.Point(470, 32);
             this.btnMasterSearch.Name = "btnMasterSearch";
             this.btnMasterSearch.Size = new System.Drawing.Size(205, 63);
             this.btnMasterSearch.TabIndex = 11;
@@ -162,7 +199,7 @@
             this.txtSearchMaster.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtSearchMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtSearchMaster.Location = new System.Drawing.Point(41, 52);
+            this.txtSearchMaster.Location = new System.Drawing.Point(36, 42);
             this.txtSearchMaster.Name = "txtSearchMaster";
             this.txtSearchMaster.Size = new System.Drawing.Size(378, 44);
             this.txtSearchMaster.TabIndex = 10;
@@ -171,7 +208,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(33, 364);
+            this.label4.Location = new System.Drawing.Point(30, 250);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(207, 37);
             this.label4.TabIndex = 9;
@@ -180,7 +217,7 @@
             // btnDeleteMaster
             // 
             this.btnDeleteMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDeleteMaster.Location = new System.Drawing.Point(495, 623);
+            this.btnDeleteMaster.Location = new System.Drawing.Point(491, 458);
             this.btnDeleteMaster.Name = "btnDeleteMaster";
             this.btnDeleteMaster.Size = new System.Drawing.Size(205, 63);
             this.btnDeleteMaster.TabIndex = 6;
@@ -192,7 +229,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(33, 270);
+            this.label5.Location = new System.Drawing.Point(30, 193);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(147, 37);
             this.label5.TabIndex = 8;
@@ -202,7 +239,7 @@
             // 
             this.txtMasterFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMasterFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtMasterFirstName.Location = new System.Drawing.Point(334, 173);
+            this.txtMasterFirstName.Location = new System.Drawing.Point(337, 119);
             this.txtMasterFirstName.Name = "txtMasterFirstName";
             this.txtMasterFirstName.Size = new System.Drawing.Size(378, 44);
             this.txtMasterFirstName.TabIndex = 1;
@@ -212,7 +249,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(33, 184);
+            this.label6.Location = new System.Drawing.Point(30, 130);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 37);
             this.label6.TabIndex = 7;
@@ -222,7 +259,7 @@
             // 
             this.txtMasterLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMasterLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtMasterLastName.Location = new System.Drawing.Point(334, 259);
+            this.txtMasterLastName.Location = new System.Drawing.Point(337, 182);
             this.txtMasterLastName.Name = "txtMasterLastName";
             this.txtMasterLastName.Size = new System.Drawing.Size(378, 44);
             this.txtMasterLastName.TabIndex = 2;
@@ -231,7 +268,7 @@
             // btnUpdateMaster
             // 
             this.btnUpdateMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnUpdateMaster.Location = new System.Drawing.Point(265, 623);
+            this.btnUpdateMaster.Location = new System.Drawing.Point(261, 458);
             this.btnUpdateMaster.Name = "btnUpdateMaster";
             this.btnUpdateMaster.Size = new System.Drawing.Size(205, 63);
             this.btnUpdateMaster.TabIndex = 5;
@@ -242,7 +279,7 @@
             // btnAddMaster
             // 
             this.btnAddMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddMaster.Location = new System.Drawing.Point(24, 623);
+            this.btnAddMaster.Location = new System.Drawing.Point(20, 458);
             this.btnAddMaster.Name = "btnAddMaster";
             this.btnAddMaster.Size = new System.Drawing.Size(205, 63);
             this.btnAddMaster.TabIndex = 4;
@@ -553,52 +590,39 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // txtMasterLogin
+            // clbMasterServices
             // 
-            this.txtMasterLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMasterLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtMasterLogin.Location = new System.Drawing.Point(334, 450);
-            this.txtMasterLogin.Name = "txtMasterLogin";
-            this.txtMasterLogin.Size = new System.Drawing.Size(378, 44);
-            this.txtMasterLogin.TabIndex = 14;
+            this.clbMasterServices.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.clbMasterServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clbMasterServices.FormattingEnabled = true;
+            this.clbMasterServices.Location = new System.Drawing.Point(0, 742);
+            this.clbMasterServices.Name = "clbMasterServices";
+            this.clbMasterServices.Size = new System.Drawing.Size(715, 127);
+            this.clbMasterServices.TabIndex = 18;
             // 
-            // label7
+            // panelMainMasters
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(33, 457);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 37);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Логін";
-            // 
-            // txtMasterPassword
-            // 
-            this.txtMasterPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMasterPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtMasterPassword.Location = new System.Drawing.Point(334, 541);
-            this.txtMasterPassword.Name = "txtMasterPassword";
-            this.txtMasterPassword.Size = new System.Drawing.Size(378, 44);
-            this.txtMasterPassword.TabIndex = 16;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(33, 548);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(124, 37);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Пароль";
-            // 
-            // cmbMasterSpecialization
-            // 
-            this.cmbMasterSpecialization.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbMasterSpecialization.FormattingEnabled = true;
-            this.cmbMasterSpecialization.Location = new System.Drawing.Point(334, 364);
-            this.cmbMasterSpecialization.Name = "cmbMasterSpecialization";
-            this.cmbMasterSpecialization.Size = new System.Drawing.Size(382, 50);
-            this.cmbMasterSpecialization.TabIndex = 17;
+            this.panelMainMasters.Controls.Add(this.btnDeleteMaster);
+            this.panelMainMasters.Controls.Add(this.cmbMasterSpecialization);
+            this.panelMainMasters.Controls.Add(this.btnAddMaster);
+            this.panelMainMasters.Controls.Add(this.txtMasterPassword);
+            this.panelMainMasters.Controls.Add(this.btnUpdateMaster);
+            this.panelMainMasters.Controls.Add(this.label8);
+            this.panelMainMasters.Controls.Add(this.txtMasterLastName);
+            this.panelMainMasters.Controls.Add(this.txtMasterLogin);
+            this.panelMainMasters.Controls.Add(this.label6);
+            this.panelMainMasters.Controls.Add(this.label7);
+            this.panelMainMasters.Controls.Add(this.txtMasterFirstName);
+            this.panelMainMasters.Controls.Add(this.btnMasterSearch);
+            this.panelMainMasters.Controls.Add(this.label5);
+            this.panelMainMasters.Controls.Add(this.txtSearchMaster);
+            this.panelMainMasters.Controls.Add(this.label4);
+            this.panelMainMasters.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMainMasters.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.panelMainMasters.Location = new System.Drawing.Point(0, 0);
+            this.panelMainMasters.Name = "panelMainMasters";
+            this.panelMainMasters.Size = new System.Drawing.Size(715, 591);
+            this.panelMainMasters.TabIndex = 19;
             // 
             // AdminMainForm
             // 
@@ -615,7 +639,6 @@
             this.tcAdmin.ResumeLayout(false);
             this.tpMasters.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasters)).EndInit();
             this.tpClients.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
@@ -625,6 +648,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelMainMasters.ResumeLayout(false);
+            this.panelMainMasters.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -677,5 +702,7 @@
         private System.Windows.Forms.TextBox txtMasterLogin;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbMasterSpecialization;
+        private System.Windows.Forms.CheckedListBox clbMasterServices;
+        private System.Windows.Forms.Panel panelMainMasters;
     }
 }

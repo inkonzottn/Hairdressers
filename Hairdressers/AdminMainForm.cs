@@ -47,6 +47,7 @@ namespace Hairdressers
             {
                 LoadMasters();
                 InitSpecializations();
+                InitServices();
             }
         }
 
@@ -476,7 +477,9 @@ namespace Hairdressers
                             if (dgvMasters.Columns["id"] != null) dgvMasters.Columns["id"].Visible = false;
                             if (dgvMasters.Columns["userId"] != null) dgvMasters.Columns["userId"].Visible = false;
                             if (dgvMasters.Columns["login"] != null) dgvMasters.Columns["login"].Visible = false;      
-                            if (dgvMasters.Columns["passwordHash"] != null) dgvMasters.Columns["passwordHash"].Visible = false; 
+                            if (dgvMasters.Columns["passwordHash"] != null) dgvMasters.Columns["passwordHash"].Visible = false;
+                            if (dgvMasters.Columns["title"] != null) dgvMasters.Columns["title"].Visible = false;
+                            if (dgvMasters.Columns["serviceId"] != null) dgvMasters.Columns["serviceId"].Visible = false;
                         }
                     }
                 }
@@ -490,7 +493,31 @@ namespace Hairdressers
         private void btnSearchMaster_Click(object sender, EventArgs e)
         {
             string searchText = txtSearchMaster.Text.Trim();
+            ClearMasterInputs();
             LoadMasters(searchText);
+        }
+
+        private void InitServices()
+        {
+            using (SqlConnection conn = GetConnection())
+            {
+                try
+                {
+                    DataTable dtSrv = new DataTable();
+                    using (SqlDataAdapter srvAdapter = new SqlDataAdapter("SELECT id, title FROM Services", conn))
+                    {
+                        srvAdapter.Fill(dtSrv);
+                    }
+
+                    clbMasterServices.DataSource = dtSrv;
+                    clbMasterServices.DisplayMember = "title";
+                    clbMasterServices.ValueMember = "id";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Помилка завантаження майстрів: " + ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void InitSpecializations()
@@ -544,6 +571,7 @@ namespace Hairdressers
                         string passwordHash = HashPassword(password);
                         string userQuery = "INSERT INTO Users (login, passwordHash, roleId) OUTPUT INSERTED.id VALUES (@login, @passwordHash, @roleId)";
                         int newUserId;
+                        int newMasterId;
 
 
                         using (SqlCommand cmdUser = new SqlCommand(userQuery, connection, transaction))
@@ -555,7 +583,7 @@ namespace Hairdressers
                             newUserId = (int)cmdUser.ExecuteScalar();
                         }
 
-                        string masterQuery = "INSERT INTO Masters (userId, specialization, firstName, lastName) VALUES (@userId, @spec, @firstName, @lastName)";
+                        string masterQuery = "INSERT INTO Masters (userId, specialization, firstName, lastName) OUTPUT INSERTED.id VALUES (@userId, @spec, @firstName, @lastName)";
                         using (SqlCommand cmdMaster = new SqlCommand(masterQuery, connection, transaction))
                         {
                             cmdMaster.Parameters.AddWithValue("@userId", newUserId);
@@ -563,7 +591,20 @@ namespace Hairdressers
                             cmdMaster.Parameters.AddWithValue("@firstName", firstName);
                             cmdMaster.Parameters.AddWithValue("@lastName", lastName);
 
-                            cmdMaster.ExecuteNonQuery();
+                            newMasterId = (int)cmdMaster.ExecuteScalar();
+                        }
+
+                        foreach (DataRowView rowView in clbMasterServices.CheckedItems)
+                        {
+                            int serviceId = Convert.ToInt32(rowView["id"]);
+
+                            string linkQuery = "INSERT INTO MasterServices (masterId, serviceId) VALUES (@masterId, @serviceId)";
+                            using (SqlCommand cmdLink = new SqlCommand(linkQuery, connection, transaction))
+                            {
+                                cmdLink.Parameters.AddWithValue("@masterId", newMasterId);
+                                cmdLink.Parameters.AddWithValue("@serviceId", serviceId);
+                                cmdLink.ExecuteNonQuery();
+                            }
                         }
 
                         transaction.Commit();
@@ -640,6 +681,26 @@ namespace Hairdressers
                             cmdMaster.Parameters.AddWithValue("@lastName", lastName);
                             cmdMaster.Parameters.AddWithValue("@id", selectedMasterId);
                             cmdMaster.ExecuteNonQuery();
+                        }
+
+                        string deleteLinksQuery = "DELETE FROM MasterServices WHERE masterId = @masterId";
+                        using (SqlCommand cmdDel = new SqlCommand(deleteLinksQuery, conn, transaction))
+                        {
+                            cmdDel.Parameters.AddWithValue("@masterId", selectedMasterId);
+                            cmdDel.ExecuteNonQuery();
+                        }
+
+                        foreach (DataRowView rowView in clbMasterServices.CheckedItems)
+                        {
+                            int serviceId = Convert.ToInt32(rowView["id"]);
+
+                            string linkQuery = "INSERT INTO MasterServices (masterId, serviceId) VALUES (@masterId, @serviceId)";
+                            using (SqlCommand cmdLink = new SqlCommand(linkQuery, conn, transaction))
+                            {
+                                cmdLink.Parameters.AddWithValue("@masterId", selectedMasterId);
+                                cmdLink.Parameters.AddWithValue("@serviceId", serviceId);
+                                cmdLink.ExecuteNonQuery();
+                            }
                         }
 
                         transaction.Commit();
@@ -720,7 +781,43 @@ namespace Hairdressers
                 txtMasterLastName.Text = row.Cells["lastName"].Value.ToString();
 
                 txtMasterLogin.Text = row.Cells["login"].Value.ToString();
-                //txtMasterPassword.Text = row.Cells["passwordHash"].Value.ToString();
+
+                // знімаємо всі галочки у списку послуг
+                for (int i = 0; i < clbMasterServices.Items.Count; i++)
+                {
+                    clbMasterServices.SetItemChecked(i, false);
+                }
+
+                // витягуємо з бази послуги, які належать цьому майстру
+                using (SqlConnection conn = GetConnection())
+                {
+                    conn.Open();
+                    string query = "SELECT serviceId FROM MasterServices WHERE masterId = @masterId";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@masterId", selectedMasterId);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            List<int> assignedServices = new List<int>();
+                            while (reader.Read())
+                            {
+                                assignedServices.Add(Convert.ToInt32(reader["serviceId"]));
+                            }
+
+                            // Ставимо галочки тим послугам, які є у майстра
+                            for (int i = 0; i < clbMasterServices.Items.Count; i++)
+                            {
+                                DataRowView rowView = (DataRowView)clbMasterServices.Items[i];
+                                int serviceId = Convert.ToInt32(rowView["id"]);
+
+                                if (assignedServices.Contains(serviceId))
+                                {
+                                    clbMasterServices.SetItemChecked(i, true);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -733,6 +830,11 @@ namespace Hairdressers
             txtMasterPassword.Clear();
             selectedMasterId = -1;
             selectedUserId = -1;
+
+            for (int i = 0; i < clbMasterServices.Items.Count; i++)
+            {
+                clbMasterServices.SetItemChecked(i, false);
+            }
         }
     }
 }
