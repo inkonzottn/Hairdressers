@@ -32,21 +32,23 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tpMasters = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.clbMasterServices = new System.Windows.Forms.CheckedListBox();
+            this.panelMainMasters = new System.Windows.Forms.Panel();
+            this.btnDeleteMaster = new System.Windows.Forms.Button();
             this.cmbMasterSpecialization = new System.Windows.Forms.ComboBox();
+            this.btnAddMaster = new System.Windows.Forms.Button();
             this.txtMasterPassword = new System.Windows.Forms.TextBox();
+            this.btnUpdateMaster = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtMasterLastName = new System.Windows.Forms.TextBox();
             this.txtMasterLogin = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtMasterFirstName = new System.Windows.Forms.TextBox();
             this.btnMasterSearch = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtSearchMaster = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnDeleteMaster = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtMasterFirstName = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtMasterLastName = new System.Windows.Forms.TextBox();
-            this.btnUpdateMaster = new System.Windows.Forms.Button();
-            this.btnAddMaster = new System.Windows.Forms.Button();
             this.dgvMasters = new System.Windows.Forms.DataGridView();
             this.tpClients = new System.Windows.Forms.TabPage();
             this.dgvClients = new System.Windows.Forms.DataGridView();
@@ -74,11 +76,11 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.clbMasterServices = new System.Windows.Forms.CheckedListBox();
-            this.panelMainMasters = new System.Windows.Forms.Panel();
+            this.btnSchedule = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpMasters.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panelMainMasters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasters)).BeginInit();
             this.tpClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
@@ -86,7 +88,6 @@
             this.tpServices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panelMainMasters.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -135,6 +136,52 @@
             this.panel3.Size = new System.Drawing.Size(715, 869);
             this.panel3.TabIndex = 13;
             // 
+            // clbMasterServices
+            // 
+            this.clbMasterServices.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.clbMasterServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clbMasterServices.FormattingEnabled = true;
+            this.clbMasterServices.Location = new System.Drawing.Point(0, 742);
+            this.clbMasterServices.Name = "clbMasterServices";
+            this.clbMasterServices.Size = new System.Drawing.Size(715, 127);
+            this.clbMasterServices.TabIndex = 18;
+            // 
+            // panelMainMasters
+            // 
+            this.panelMainMasters.Controls.Add(this.btnSchedule);
+            this.panelMainMasters.Controls.Add(this.btnDeleteMaster);
+            this.panelMainMasters.Controls.Add(this.cmbMasterSpecialization);
+            this.panelMainMasters.Controls.Add(this.btnAddMaster);
+            this.panelMainMasters.Controls.Add(this.txtMasterPassword);
+            this.panelMainMasters.Controls.Add(this.btnUpdateMaster);
+            this.panelMainMasters.Controls.Add(this.label8);
+            this.panelMainMasters.Controls.Add(this.txtMasterLastName);
+            this.panelMainMasters.Controls.Add(this.txtMasterLogin);
+            this.panelMainMasters.Controls.Add(this.label6);
+            this.panelMainMasters.Controls.Add(this.label7);
+            this.panelMainMasters.Controls.Add(this.txtMasterFirstName);
+            this.panelMainMasters.Controls.Add(this.btnMasterSearch);
+            this.panelMainMasters.Controls.Add(this.label5);
+            this.panelMainMasters.Controls.Add(this.txtSearchMaster);
+            this.panelMainMasters.Controls.Add(this.label4);
+            this.panelMainMasters.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMainMasters.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.panelMainMasters.Location = new System.Drawing.Point(0, 0);
+            this.panelMainMasters.Name = "panelMainMasters";
+            this.panelMainMasters.Size = new System.Drawing.Size(715, 591);
+            this.panelMainMasters.TabIndex = 19;
+            // 
+            // btnDeleteMaster
+            // 
+            this.btnDeleteMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDeleteMaster.Location = new System.Drawing.Point(359, 458);
+            this.btnDeleteMaster.Name = "btnDeleteMaster";
+            this.btnDeleteMaster.Size = new System.Drawing.Size(159, 63);
+            this.btnDeleteMaster.TabIndex = 6;
+            this.btnDeleteMaster.Text = "Видалити";
+            this.btnDeleteMaster.UseVisualStyleBackColor = true;
+            this.btnDeleteMaster.Click += new System.EventHandler(this.btnDeleteMaster_Click);
+            // 
             // cmbMasterSpecialization
             // 
             this.cmbMasterSpecialization.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -144,6 +191,17 @@
             this.cmbMasterSpecialization.Size = new System.Drawing.Size(382, 45);
             this.cmbMasterSpecialization.TabIndex = 17;
             // 
+            // btnAddMaster
+            // 
+            this.btnAddMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnAddMaster.Location = new System.Drawing.Point(20, 458);
+            this.btnAddMaster.Name = "btnAddMaster";
+            this.btnAddMaster.Size = new System.Drawing.Size(141, 63);
+            this.btnAddMaster.TabIndex = 4;
+            this.btnAddMaster.Text = "Додати";
+            this.btnAddMaster.UseVisualStyleBackColor = true;
+            this.btnAddMaster.Click += new System.EventHandler(this.btnAddMaster_Click);
+            // 
             // txtMasterPassword
             // 
             this.txtMasterPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -152,6 +210,17 @@
             this.txtMasterPassword.Name = "txtMasterPassword";
             this.txtMasterPassword.Size = new System.Drawing.Size(378, 44);
             this.txtMasterPassword.TabIndex = 16;
+            // 
+            // btnUpdateMaster
+            // 
+            this.btnUpdateMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnUpdateMaster.Location = new System.Drawing.Point(167, 458);
+            this.btnUpdateMaster.Name = "btnUpdateMaster";
+            this.btnUpdateMaster.Size = new System.Drawing.Size(186, 63);
+            this.btnUpdateMaster.TabIndex = 5;
+            this.btnUpdateMaster.Text = "Редагувати";
+            this.btnUpdateMaster.UseVisualStyleBackColor = true;
+            this.btnUpdateMaster.Click += new System.EventHandler(this.btnUpdateMaster_Click);
             // 
             // label8
             // 
@@ -163,6 +232,16 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Пароль";
             // 
+            // txtMasterLastName
+            // 
+            this.txtMasterLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMasterLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtMasterLastName.Location = new System.Drawing.Point(337, 182);
+            this.txtMasterLastName.Name = "txtMasterLastName";
+            this.txtMasterLastName.Size = new System.Drawing.Size(378, 44);
+            this.txtMasterLastName.TabIndex = 2;
+            this.txtMasterLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyLetters_KeyPress);
+            // 
             // txtMasterLogin
             // 
             this.txtMasterLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -171,6 +250,16 @@
             this.txtMasterLogin.Name = "txtMasterLogin";
             this.txtMasterLogin.Size = new System.Drawing.Size(378, 44);
             this.txtMasterLogin.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(30, 130);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(69, 37);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Ім\'я";
             // 
             // label7
             // 
@@ -181,6 +270,16 @@
             this.label7.Size = new System.Drawing.Size(89, 37);
             this.label7.TabIndex = 13;
             this.label7.Text = "Логін";
+            // 
+            // txtMasterFirstName
+            // 
+            this.txtMasterFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMasterFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtMasterFirstName.Location = new System.Drawing.Point(337, 119);
+            this.txtMasterFirstName.Name = "txtMasterFirstName";
+            this.txtMasterFirstName.Size = new System.Drawing.Size(378, 44);
+            this.txtMasterFirstName.TabIndex = 1;
+            this.txtMasterFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyLetters_KeyPress);
             // 
             // btnMasterSearch
             // 
@@ -193,6 +292,16 @@
             this.btnMasterSearch.Text = "Пошук";
             this.btnMasterSearch.UseVisualStyleBackColor = true;
             this.btnMasterSearch.Click += new System.EventHandler(this.btnSearchMaster_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(30, 193);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(147, 37);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Прізвище";
             // 
             // txtSearchMaster
             // 
@@ -213,79 +322,6 @@
             this.label4.Size = new System.Drawing.Size(207, 37);
             this.label4.TabIndex = 9;
             this.label4.Text = "Спеціалізація";
-            // 
-            // btnDeleteMaster
-            // 
-            this.btnDeleteMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDeleteMaster.Location = new System.Drawing.Point(491, 458);
-            this.btnDeleteMaster.Name = "btnDeleteMaster";
-            this.btnDeleteMaster.Size = new System.Drawing.Size(205, 63);
-            this.btnDeleteMaster.TabIndex = 6;
-            this.btnDeleteMaster.Text = "Видалити";
-            this.btnDeleteMaster.UseVisualStyleBackColor = true;
-            this.btnDeleteMaster.Click += new System.EventHandler(this.btnDeleteMaster_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(30, 193);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(147, 37);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Прізвище";
-            // 
-            // txtMasterFirstName
-            // 
-            this.txtMasterFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMasterFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtMasterFirstName.Location = new System.Drawing.Point(337, 119);
-            this.txtMasterFirstName.Name = "txtMasterFirstName";
-            this.txtMasterFirstName.Size = new System.Drawing.Size(378, 44);
-            this.txtMasterFirstName.TabIndex = 1;
-            this.txtMasterFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyLetters_KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(30, 130);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 37);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Ім\'я";
-            // 
-            // txtMasterLastName
-            // 
-            this.txtMasterLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMasterLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtMasterLastName.Location = new System.Drawing.Point(337, 182);
-            this.txtMasterLastName.Name = "txtMasterLastName";
-            this.txtMasterLastName.Size = new System.Drawing.Size(378, 44);
-            this.txtMasterLastName.TabIndex = 2;
-            this.txtMasterLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyLetters_KeyPress);
-            // 
-            // btnUpdateMaster
-            // 
-            this.btnUpdateMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnUpdateMaster.Location = new System.Drawing.Point(261, 458);
-            this.btnUpdateMaster.Name = "btnUpdateMaster";
-            this.btnUpdateMaster.Size = new System.Drawing.Size(205, 63);
-            this.btnUpdateMaster.TabIndex = 5;
-            this.btnUpdateMaster.Text = "Редагувати";
-            this.btnUpdateMaster.UseVisualStyleBackColor = true;
-            this.btnUpdateMaster.Click += new System.EventHandler(this.btnUpdateMaster_Click);
-            // 
-            // btnAddMaster
-            // 
-            this.btnAddMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddMaster.Location = new System.Drawing.Point(20, 458);
-            this.btnAddMaster.Name = "btnAddMaster";
-            this.btnAddMaster.Size = new System.Drawing.Size(205, 63);
-            this.btnAddMaster.TabIndex = 4;
-            this.btnAddMaster.Text = "Додати";
-            this.btnAddMaster.UseVisualStyleBackColor = true;
-            this.btnAddMaster.Click += new System.EventHandler(this.btnAddMaster_Click);
             // 
             // dgvMasters
             // 
@@ -590,39 +626,16 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // clbMasterServices
+            // btnSchedule
             // 
-            this.clbMasterServices.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.clbMasterServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clbMasterServices.FormattingEnabled = true;
-            this.clbMasterServices.Location = new System.Drawing.Point(0, 742);
-            this.clbMasterServices.Name = "clbMasterServices";
-            this.clbMasterServices.Size = new System.Drawing.Size(715, 127);
-            this.clbMasterServices.TabIndex = 18;
-            // 
-            // panelMainMasters
-            // 
-            this.panelMainMasters.Controls.Add(this.btnDeleteMaster);
-            this.panelMainMasters.Controls.Add(this.cmbMasterSpecialization);
-            this.panelMainMasters.Controls.Add(this.btnAddMaster);
-            this.panelMainMasters.Controls.Add(this.txtMasterPassword);
-            this.panelMainMasters.Controls.Add(this.btnUpdateMaster);
-            this.panelMainMasters.Controls.Add(this.label8);
-            this.panelMainMasters.Controls.Add(this.txtMasterLastName);
-            this.panelMainMasters.Controls.Add(this.txtMasterLogin);
-            this.panelMainMasters.Controls.Add(this.label6);
-            this.panelMainMasters.Controls.Add(this.label7);
-            this.panelMainMasters.Controls.Add(this.txtMasterFirstName);
-            this.panelMainMasters.Controls.Add(this.btnMasterSearch);
-            this.panelMainMasters.Controls.Add(this.label5);
-            this.panelMainMasters.Controls.Add(this.txtSearchMaster);
-            this.panelMainMasters.Controls.Add(this.label4);
-            this.panelMainMasters.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMainMasters.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.panelMainMasters.Location = new System.Drawing.Point(0, 0);
-            this.panelMainMasters.Name = "panelMainMasters";
-            this.panelMainMasters.Size = new System.Drawing.Size(715, 591);
-            this.panelMainMasters.TabIndex = 19;
+            this.btnSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSchedule.Location = new System.Drawing.Point(524, 458);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(174, 63);
+            this.btnSchedule.TabIndex = 18;
+            this.btnSchedule.Text = "Календар";
+            this.btnSchedule.UseVisualStyleBackColor = true;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
             // 
             // AdminMainForm
             // 
@@ -639,6 +652,8 @@
             this.tcAdmin.ResumeLayout(false);
             this.tpMasters.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panelMainMasters.ResumeLayout(false);
+            this.panelMainMasters.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMasters)).EndInit();
             this.tpClients.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
@@ -648,8 +663,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panelMainMasters.ResumeLayout(false);
-            this.panelMainMasters.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -704,5 +717,6 @@
         private System.Windows.Forms.ComboBox cmbMasterSpecialization;
         private System.Windows.Forms.CheckedListBox clbMasterServices;
         private System.Windows.Forms.Panel panelMainMasters;
+        private System.Windows.Forms.Button btnSchedule;
     }
 }

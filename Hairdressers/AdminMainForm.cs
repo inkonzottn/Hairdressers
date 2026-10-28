@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HairdressersApp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -834,6 +835,22 @@ namespace Hairdressers
             for (int i = 0; i < clbMasterServices.Items.Count; i++)
             {
                 clbMasterServices.SetItemChecked(i, false);
+            }
+        }
+
+        private void btnSchedule_Click(object sender, EventArgs e)
+        {
+            if (selectedMasterId == -1)
+            {
+                MessageBox.Show("Спочатку оберіть майстра зі списку!", "Увага", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string masterName = $"{txtMasterFirstName.Text} {txtMasterLastName.Text}";
+
+            using (AdminMasterScheduleForm scheduleForm = new AdminMasterScheduleForm(selectedMasterId, masterName))
+            {
+                scheduleForm.ShowDialog(this);
             }
         }
     }
