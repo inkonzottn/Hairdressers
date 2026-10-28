@@ -34,6 +34,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.clbMasterServices = new System.Windows.Forms.CheckedListBox();
             this.panelMainMasters = new System.Windows.Forms.Panel();
+            this.btnSchedule = new System.Windows.Forms.Button();
             this.btnDeleteMaster = new System.Windows.Forms.Button();
             this.cmbMasterSpecialization = new System.Windows.Forms.ComboBox();
             this.btnAddMaster = new System.Windows.Forms.Button();
@@ -76,7 +77,7 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSchedule = new System.Windows.Forms.Button();
+            this.btnCreateAppointment = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpMasters.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -170,6 +171,17 @@
             this.panelMainMasters.Name = "panelMainMasters";
             this.panelMainMasters.Size = new System.Drawing.Size(715, 591);
             this.panelMainMasters.TabIndex = 19;
+            // 
+            // btnSchedule
+            // 
+            this.btnSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSchedule.Location = new System.Drawing.Point(524, 458);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(174, 63);
+            this.btnSchedule.TabIndex = 18;
+            this.btnSchedule.Text = "Календар";
+            this.btnSchedule.UseVisualStyleBackColor = true;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
             // 
             // btnDeleteMaster
             // 
@@ -362,6 +374,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnCreateAppointment);
             this.panel2.Controls.Add(this.txtClientPhoneNumber);
             this.panel2.Controls.Add(this.btnSearchClient);
             this.panel2.Controls.Add(this.txtSearchClient);
@@ -626,16 +639,16 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnSchedule
+            // btnCreateAppointment
             // 
-            this.btnSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSchedule.Location = new System.Drawing.Point(524, 458);
-            this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(174, 63);
-            this.btnSchedule.TabIndex = 18;
-            this.btnSchedule.Text = "Календар";
-            this.btnSchedule.UseVisualStyleBackColor = true;
-            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
+            this.btnCreateAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCreateAppointment.Location = new System.Drawing.Point(280, 653);
+            this.btnCreateAppointment.Name = "btnCreateAppointment";
+            this.btnCreateAppointment.Size = new System.Drawing.Size(205, 63);
+            this.btnCreateAppointment.TabIndex = 13;
+            this.btnCreateAppointment.Text = "Запис";
+            this.btnCreateAppointment.UseVisualStyleBackColor = true;
+            this.btnCreateAppointment.Click += new System.EventHandler(this.btnCreateAppointment_Click);
             // 
             // AdminMainForm
             // 
@@ -718,5 +731,6 @@
         private System.Windows.Forms.CheckedListBox clbMasterServices;
         private System.Windows.Forms.Panel panelMainMasters;
         private System.Windows.Forms.Button btnSchedule;
+        private System.Windows.Forms.Button btnCreateAppointment;
     }
 }

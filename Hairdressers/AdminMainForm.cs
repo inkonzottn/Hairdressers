@@ -853,5 +853,21 @@ namespace Hairdressers
                 scheduleForm.ShowDialog(this);
             }
         }
+
+        private void btnCreateAppointment_Click(object sender, EventArgs e)
+        {
+            if (selectedClientId == -1)
+            {
+                MessageBox.Show("Спочатку оберіть клієнта зі списку!", "Увага", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string clientName = $"{txtClientFirstName.Text} {txtClientLastName.Text}";
+
+            using (CreateAppointmentForm appointmentForm = new CreateAppointmentForm(selectedClientId))
+            {
+                appointmentForm.ShowDialog(this);
+            }
+        }
     }
 }

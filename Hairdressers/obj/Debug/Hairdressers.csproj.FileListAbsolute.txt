@@ -11,3 +11,5 @@ C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\obj\Debug\Hairdre
 C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\obj\Debug\Hairdressers.pdb
 C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\obj\Debug\Hairdressers.LoginForm.resources
 C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\obj\Debug\Hairdressers.AdminMainForm.resources
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\obj\Debug\Hairdressers.CreateAppointmentForm.resources
+C:\Users\chorobish\source\repos\izvp\Hairdressers\Hairdressers\obj\Debug\HairdressersApp.AdminMasterScheduleForm.resources

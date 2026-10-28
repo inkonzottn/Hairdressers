@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|c:\\users\\chorobish\\source\\repos\\izvp\\hairdressers\\hairdressers\\createappointmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\createappointmentform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|c:\\users\\chorobish\\source\\repos\\izvp\\hairdressers\\hairdressers\\adminmasterscheduleform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\adminmasterscheduleform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|solutionrelative:hairdressers\\adminmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC4A033A-BFF0-4C0C-B74F-EA7B2BAC6B4D}|Hairdressers\\Hairdressers.csproj|C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\hairdressers\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,28 +38,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AdminMasterScheduleForm.cs",
               "DocumentMoniker": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\AdminMasterScheduleForm.cs",
               "RelativeDocumentMoniker": "Hairdressers\\AdminMasterScheduleForm.cs",
               "ToolTip": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\AdminMasterScheduleForm.cs",
               "RelativeToolTip": "Hairdressers\\AdminMasterScheduleForm.cs",
-              "ViewState": "AgIAABQBAAAAAAAAAAAIwCYBAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-23T11:58:33.81Z",
+              "WhenOpened": "2026-10-28T19:40:20.653Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "CreateAppointmentForm.cs",
+              "DocumentMoniker": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\CreateAppointmentForm.cs",
+              "RelativeDocumentMoniker": "Hairdressers\\CreateAppointmentForm.cs",
+              "ToolTip": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\CreateAppointmentForm.cs",
+              "RelativeToolTip": "Hairdressers\\CreateAppointmentForm.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAUwBgBAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-28T19:14:50.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AdminMainForm.cs",
               "DocumentMoniker": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\AdminMainForm.cs",
               "RelativeDocumentMoniker": "Hairdressers\\AdminMainForm.cs",
               "ToolTip": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\AdminMainForm.cs",
               "RelativeToolTip": "Hairdressers\\AdminMainForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIDAAByAAAAAAAAAA==",
+              "ViewState": "AgIAAFMDAAAAAAAAAADwv2IDAABlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T09:32:16.822Z"
+              "WhenOpened": "2026-10-22T09:32:16.822Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -66,11 +84,12 @@
               "ToolTip": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\AdminMainForm.cs [Design]",
               "RelativeToolTip": "Hairdressers\\AdminMainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T09:16:53.997Z"
+              "WhenOpened": "2026-10-22T09:16:53.997Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\chorobish\\source\\repos\\izvp\\Hairdressers\\Hairdressers\\Program.cs",
               "RelativeDocumentMoniker": "Hairdressers\\Program.cs",
@@ -78,7 +97,8 @@
               "RelativeToolTip": "Hairdressers\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-23T11:59:03.418Z"
+              "WhenOpened": "2026-10-23T11:59:03.418Z",
+              "EditorCaption": ""
             }
           ]
         }
