@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tcAdmin = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tpSchedule = new System.Windows.Forms.TabPage();
             this.tpMasters = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.clbMasterServices = new System.Windows.Forms.CheckedListBox();
@@ -54,6 +54,7 @@
             this.tpClients = new System.Windows.Forms.TabPage();
             this.dgvClients = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCreateAppointment = new System.Windows.Forms.Button();
             this.txtClientPhoneNumber = new System.Windows.Forms.MaskedTextBox();
             this.btnSearchClient = new System.Windows.Forms.Button();
             this.txtSearchClient = new System.Windows.Forms.TextBox();
@@ -77,7 +78,7 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnCreateAppointment = new System.Windows.Forms.Button();
+            this.tpExit = new System.Windows.Forms.TabPage();
             this.tcAdmin.SuspendLayout();
             this.tpMasters.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -93,10 +94,11 @@
             // 
             // tcAdmin
             // 
-            this.tcAdmin.Controls.Add(this.tabPage1);
+            this.tcAdmin.Controls.Add(this.tpSchedule);
             this.tcAdmin.Controls.Add(this.tpMasters);
             this.tcAdmin.Controls.Add(this.tpClients);
             this.tcAdmin.Controls.Add(this.tpServices);
+            this.tcAdmin.Controls.Add(this.tpExit);
             this.tcAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcAdmin.Location = new System.Drawing.Point(0, 0);
             this.tcAdmin.Name = "tcAdmin";
@@ -105,15 +107,15 @@
             this.tcAdmin.TabIndex = 0;
             this.tcAdmin.SelectedIndexChanged += new System.EventHandler(this.tcAdmin_SelectedIndexChanged);
             // 
-            // tabPage1
+            // tpSchedule
             // 
-            this.tabPage1.Location = new System.Drawing.Point(8, 56);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1491, 875);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Розклад";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpSchedule.Location = new System.Drawing.Point(8, 56);
+            this.tpSchedule.Name = "tpSchedule";
+            this.tpSchedule.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSchedule.Size = new System.Drawing.Size(1491, 875);
+            this.tpSchedule.TabIndex = 0;
+            this.tpSchedule.Text = "Розклад";
+            this.tpSchedule.UseVisualStyleBackColor = true;
             // 
             // tpMasters
             // 
@@ -392,6 +394,17 @@
             this.panel2.Size = new System.Drawing.Size(715, 875);
             this.panel2.TabIndex = 12;
             // 
+            // btnCreateAppointment
+            // 
+            this.btnCreateAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnCreateAppointment.Location = new System.Drawing.Point(280, 653);
+            this.btnCreateAppointment.Name = "btnCreateAppointment";
+            this.btnCreateAppointment.Size = new System.Drawing.Size(205, 63);
+            this.btnCreateAppointment.TabIndex = 13;
+            this.btnCreateAppointment.Text = "Запис";
+            this.btnCreateAppointment.UseVisualStyleBackColor = true;
+            this.btnCreateAppointment.Click += new System.EventHandler(this.btnCreateAppointment_Click);
+            // 
             // txtClientPhoneNumber
             // 
             this.txtClientPhoneNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -639,16 +652,15 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnCreateAppointment
+            // tpExit
             // 
-            this.btnCreateAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCreateAppointment.Location = new System.Drawing.Point(280, 653);
-            this.btnCreateAppointment.Name = "btnCreateAppointment";
-            this.btnCreateAppointment.Size = new System.Drawing.Size(205, 63);
-            this.btnCreateAppointment.TabIndex = 13;
-            this.btnCreateAppointment.Text = "Запис";
-            this.btnCreateAppointment.UseVisualStyleBackColor = true;
-            this.btnCreateAppointment.Click += new System.EventHandler(this.btnCreateAppointment_Click);
+            this.tpExit.BackColor = System.Drawing.Color.Transparent;
+            this.tpExit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tpExit.Location = new System.Drawing.Point(8, 56);
+            this.tpExit.Name = "tpExit";
+            this.tpExit.Size = new System.Drawing.Size(1491, 875);
+            this.tpExit.TabIndex = 4;
+            this.tpExit.Text = "Вийти";
             // 
             // AdminMainForm
             // 
@@ -683,7 +695,7 @@
         #endregion
 
         private System.Windows.Forms.TabControl tcAdmin;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tpSchedule;
         private System.Windows.Forms.TabPage tpMasters;
         private System.Windows.Forms.TabPage tpClients;
         private System.Windows.Forms.TabPage tpServices;
@@ -732,5 +744,6 @@
         private System.Windows.Forms.Panel panelMainMasters;
         private System.Windows.Forms.Button btnSchedule;
         private System.Windows.Forms.Button btnCreateAppointment;
+        private System.Windows.Forms.TabPage tpExit;
     }
 }

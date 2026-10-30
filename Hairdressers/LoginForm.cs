@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HairdressersApp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -75,36 +76,45 @@ namespace Hairdressers
                 try
                 {
                     connection.Open();
-                    string query = "SELECT roleId FROM Users WHERE login = @login AND passwordHash = @passwordHash";
+                    string query = @"
+                        SELECT u.roleId, m.id AS masterId, m.firstName, m.lastName 
+                        FROM Users u 
+                        LEFT JOIN Masters m ON u.id = m.userId
+                        WHERE u.login = @login AND u.passwordHash = @passwordHash";
+
                     using (SqlCommand cmd = new SqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@login", login);
                         cmd.Parameters.AddWithValue("@passwordHash", passwordHash);
 
-                        object result = cmd.ExecuteScalar();
-                        if (result != null)
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            int roleId = Convert.ToInt32(result);
-                            MessageBox.Show("Успішний вхід!", "Вітаємо", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            string roleName = "Master";
-                            if (roleId == 1)
+                            if (reader.Read())
                             {
-                                roleName = "Admin";
-                            }
-                            else if (roleId == 2)
-                            {
-                                roleName = "Master";
-                            }
+                                int roleId = Convert.ToInt32(reader["roleId"]);
+                                MessageBox.Show("Успішний вхід!", "Вітаємо", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            LoadClientMainForm(roleName);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Невірний логін або пароль!", "Помилка входу", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                if (roleId == 1)
+                                {
+                                    LoadClientMainForm(0, "Admin", "Admin");
+                                }
+                                else if (roleId == 2)
+                                {
+                                    int masterId = reader["masterId"] != DBNull.Value ? Convert.ToInt32(reader["masterId"]) : 0;
+                                    string firstName = reader["firstName"] != DBNull.Value ? reader["firstName"].ToString() : "Майстер";
+                                    string lastName = reader["lastName"] != DBNull.Value ? reader["lastName"].ToString() : "";
+                                    string masterFullName = $"{firstName} {lastName}".Trim();
+
+                                    LoadClientMainForm(masterId, masterFullName, "Master");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Невірний логін або пароль!", "Помилка входу", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
-                }
+                    }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Помилка підключення до БД: " + ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -141,6 +151,7 @@ namespace Hairdressers
                                 // клієнт існує — звіряємо ім'я та прізвище для безпеки
                                 string dbLastName = reader["lastName"].ToString();
                                 string dbFirstName = reader["firstName"].ToString();
+                                int clientId = Convert.ToInt32(reader["id"]);
 
                                 bool isLastNameMatch = dbLastName.Equals(lastName, StringComparison.OrdinalIgnoreCase);
                                 bool isFirstNameMatch = dbFirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase);
@@ -149,7 +160,7 @@ namespace Hairdressers
                                 {
                                     MessageBox.Show($"Вітаємо з поверненням, {dbFirstName}!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     this.Hide();
-                                    LoadClientMainForm(roleName);
+                                    LoadClientMainForm(clientId, dbFirstName, roleName);
                                 }
                                 else
                                 {
@@ -167,11 +178,21 @@ namespace Hairdressers
                                     insertCmd.Parameters.AddWithValue("@firstName", firstName);
                                     insertCmd.Parameters.AddWithValue("@lastName", lastName);
                                     insertCmd.Parameters.AddWithValue("@phone", phone);
+
+                                    object newIdObj = insertCmd.ExecuteScalar();
+
+                                    int clientId = 0;
+                                    if (newIdObj != null && newIdObj != DBNull.Value)
+                                    {
+                                        clientId = Convert.ToInt32(newIdObj);
+                                    }
+
                                     insertCmd.ExecuteNonQuery();
 
                                     MessageBox.Show("Реєстрація успішна! Ласкаво просимо.", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     this.Hide();
-                                    LoadClientMainForm(roleName);
+                                    LoadClientMainForm(clientId, firstName, roleName);
+
                                 }
                             }
                         }
@@ -204,25 +225,32 @@ namespace Hairdressers
             return new SqlConnection(connectionString);
         }
 
-        private void LoadClientMainForm(string role)
+        private void LoadClientMainForm(int id, string name, string role)
         {
+            Form targetForm = null;
+
             switch (role)
             {
                 case "Client":
-                    ClientMainForm clientForm = new ClientMainForm();
-                    clientForm.Show();
-                    this.Hide();
+                    targetForm = new ClientMainForm();
                     break;
                 case "Master":
-                    MasterMainForm masterForm = new MasterMainForm();
-                    masterForm.Show();
-                    this.Hide();
+                    targetForm = new MasterMainForm(id, name);
                     break;
                 case "Admin":
-                    AdminMainForm adminForm = new AdminMainForm();
-                    adminForm.Show();
-                    this.Hide();
+                    targetForm = new AdminMainForm();
                     break;
+            }
+
+            if (targetForm != null)
+            {
+                targetForm.FormClosed += (s, args) =>
+                {
+                    this.Show();
+                };
+
+                targetForm.Show();
+                this.Hide();
             }
         }
     }

@@ -50,6 +50,18 @@ namespace Hairdressers
                 InitSpecializations();
                 InitServices();
             }
+            else if (tcAdmin.SelectedTab == tpExit)
+            {
+                DialogResult result = MessageBox.Show("Ви дійсно хочете вийти?", "Вихід", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    tcAdmin.SelectedIndex = 0;
+                }
+            }
         }
 
         // ПОСЛУГИ

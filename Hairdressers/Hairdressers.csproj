@@ -87,9 +87,6 @@
     <Compile Include="MasterMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterMainForm.Designer.cs">
-      <DependentUpon>MasterMainForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="AdminMasterScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,11 +98,17 @@
     <EmbeddedResource Include="AdminMasterScheduleForm.resx">
       <DependentUpon>AdminMasterScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientMainForm.resx">
+      <DependentUpon>ClientMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateAppointmentForm.resx">
       <DependentUpon>CreateAppointmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterMainForm.resx">
+      <DependentUpon>MasterMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
